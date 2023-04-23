@@ -1,4 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
+
+:root {
+    font-size: 15px;
+    background-color: var(--cl-primary-1);
+    --cl-primary-1: hsl(0, 0%, 100%);
+    --cl-primary-2: hsl(0, 0%, 0%);
+    --cl-primary-3: hsl(0, 0%, 55%);
+    --cl-primary-4: hsl(0, 0%, 41%);
+    --text-base: 1rem;
+    --text-lg: 1.124rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 2.5rem;
+    --font-family-1: 'Alata', sans-serif;
+    --font-family-2: 'Josefin Sans', sans-serif;
+    --font-thin: 300;
+    --font-regular: 400;
+}
+
 /* Reset */
+
 *,
 *::before,
 *::after {
@@ -11,6 +35,7 @@ h2,
 p {
     margin: 0;
     padding: 0;
+    font-family: var(--font-family-1);
 }
 
 body {
@@ -31,6 +56,7 @@ p {
 
 ul[role='list'] {
     list-style: none;
+    margin: 0;
 }
 
 img {
@@ -40,4 +66,112 @@ img {
 
 a {
     text-decoration: none;
+    color: var(--cl-primary-1);
+}
+
+button {
+    background: none;
+    outline: none;
+    border: none;
+}
+
+/* Components */
+
+#navbar {
+    top: 2.75em;
+    left: 0;
+    z-index: 999;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 1.25em;
+}
+
+#navbar h1 {
+    display: none;
+}
+
+#navbar > nav {
+    overflow: hidden;
+}
+
+#navbar ul {
+    font-size: var(--text-2xl);
+    font-family: var(--font-family-2);
+    font-weight: var(--font-thin);
+    padding: 0 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75em;
+}
+
+#logo {
+    width: 130px;
+}
+
+#hero {
+    background-image: url('./images/mobile/image-hero.jpg');
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    height: min(100vh, calc(100vw / 750 * 1300));
+    padding: 35vh 1.5em 0;
+}
+
+#hero > h2 {
+    border: 2px solid white;
+    font-size: var(--text-5xl);
+    color: var(--cl-primary-1);
+    padding: 0.75em;
+    padding-right: 1.5em;
+    line-height: 1em;
+    font-family: var(--font-family-2);
+    font-weight: var(--font-thin);
+}
+
+@media (min-width: 1024px) {
+   #menu-btn {
+    display: none;
+   } 
+   #navbar {
+    padding: 0 100px;
+   }
+   #nav {
+    display: block;
+    padding-top: 0;
+   }
+   #nav ul {
+    flex-direction: row;
+    font-size: var(--text-lg);
+   }
+   #hero {
+    background-image: url('./images/desktop/image-hero.jpg');
+    height: calc(100vw * 650 / 1440);
+   }
+}
+
+/* Utilities */
+
+.flex {
+    display: flex;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    display: block;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--cl-primary-2);
+    z-index: -1;
+    padding-top: 50%;
+    text-transform: uppercase;
 }
