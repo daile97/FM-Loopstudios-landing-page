@@ -15,6 +15,8 @@
     --text-3xl: 1.875rem;
     --text-4xl: 2.25rem;
     --text-5xl: 2.5rem;
+    --text-6xl: 3rem;
+    --text-7xl: 3.5rem;
     --font-family-1: 'Alata', sans-serif;
     --font-family-2: 'Josefin Sans', sans-serif;
     --font-thin: 300;
@@ -79,11 +81,11 @@ button {
 
 #navbar {
     top: 2.75em;
-    left: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
     z-index: 999;
     justify-content: space-between;
-    width: 100%;
-    padding: 0 1.25em;
+    width: 90%;
 }
 
 #navbar h1 {
@@ -114,7 +116,7 @@ button {
     background-size: cover;
     width: 100%;
     height: min(100vh, calc(100vw / 750 * 1300));
-    padding: 35vh 1.5em 0;
+    position: relative;
 }
 
 #hero > h2 {
@@ -126,6 +128,18 @@ button {
     line-height: 1em;
     font-family: var(--font-family-2);
     font-weight: var(--font-thin);
+    position: absolute;
+    width: 90%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 35%
+}
+
+@media (min-width: 576px) {
+    #hero > h2 {
+        padding-right: 2.5em;
+        font-size: var(--text-6xl)
+    }
 }
 
 @media (min-width: 1024px) {
@@ -142,11 +156,28 @@ button {
    #nav ul {
     flex-direction: row;
     font-size: var(--text-lg);
+    font-weight: var(--font-regular);
+    font-family: var(--font-family-1);
    }
    #hero {
     background-image: url('./images/desktop/image-hero.jpg');
     height: calc(100vw * 650 / 1440);
    }
+
+   #hero > h2 {
+    max-width: 48%;
+    left: calc(5% + 100px);
+    transform: translate(0, 0);
+    font-size: var(--text-5xl);
+    padding-right: 2.75em;
+   }
+}
+
+@media (min-width: 1400px) {
+    #hero > h2 {
+        font-size: var(--text-7xl);
+    }
+
 }
 
 /* Utilities */
